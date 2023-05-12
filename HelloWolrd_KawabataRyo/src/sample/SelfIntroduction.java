@@ -3,12 +3,11 @@ package sample;
 public class SelfIntroduction {
 
 	public static void main(String[] args) {
-		// TODO 自動生成されたメソッド・スタブ
 		// 氏名
-		String name = "河端　涼";
-		//年齢		
+		String name = "河端 涼";
+		// 年齢		
 		int age = 26;
-		//	趣味	
+		// 趣味	
 		String hobby = "映画鑑賞";		
 		/*
 		 * 自己紹介を出力する処理
