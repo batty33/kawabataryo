@@ -27,7 +27,7 @@ public class Qes7 {
 			System.out.print("生徒の人数を入力してください（2以上）: ");
 			// 入力された数字を変数に代入
 			studentsNum = scanner.nextInt();
-		// 条件は生徒数が2より少ない
+			// 条件は生徒数が2より少ない
 		} while (studentsNum < 2);
 
 		// 点数を人数分まとめる
@@ -55,19 +55,20 @@ public class Qes7 {
 			// 英語の点数を合計値に足す
 			totalEnglish += scores[i][0];
 			// 数学の点数を合計値に足す
-			totalMath +=scores[i][1];
+			totalMath += scores[i][1];
 			// 理科の点数を合計値に足す
 			totalScience += scores[i][2];
 			// 社会の点数を合計値に足す
 			totalSocial += scores[i][3];
 
 			// 各生徒の平均値を配列にいれる
-			averages[i] = ((double) scores[i][0] + (double) scores[i][1] + (double) scores[i][2] + (double) scores[i][3]) / 4;
+			averages[i] = ((double) scores[i][0] + (double) scores[i][1] + (double) scores[i][2]
+					+ (double) scores[i][3]) / 4;
 		}
 
 		// 生徒数まで繰り返す
 		for (int i = 0; i < studentsNum; i++) {
-		
+
 			System.out.printf("%d人目の平均点は%.2f点です%n", i + 1, averages[i]);
 		}
 
