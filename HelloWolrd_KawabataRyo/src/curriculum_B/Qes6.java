@@ -1,71 +1,70 @@
 package curriculum_B;
-//randomをimportする
+
 import java.util.Random;
 //scannerをインポートする
 import java.util.Scanner;
+
 public class Qes6 {
 
 	public static void main(String[] args) {
-		// scannerを初期化
-		Scanner scanner = new Scanner(System.in);
-		// checkに入力した文字を受け取れるようにする
-		String check = scanner.nextLine();
-		// scannerを閉じる
-		scanner.close();
 
-		// Randomを初期化する
+		Scanner scanner = new Scanner(System.in);
+
 		Random rand = new Random();
 
-		// 受け取った文字列を「、」で区切れるようにする
-		String check_items[] = check.split("、");
-		// TVDisplay_randを宣言してランダムな数字を入れる
-		int TVDisplay_rand = rand.nextInt(11) + 1;
-		// check_itemsに対する拡張for文を生成
-		for(String item: check_items) {
+		// 受け取った文字列を「、」で区切る
+		String check_items[] = scanner.nextLine().split("、");
+		scanner.close();
 
-			// テレビのランダム数をTV_randに代入
-			int item_rand = rand.nextInt(11) + 1;
+		// テレビとディスプレイの残数をランダムに宣言
+		int tvDisplay_rand = rand.nextInt(12);
 
-			// itemによるswitch文を生成する
-			switch(item) {
+		// 入力されたものを1つずつ処理
+		for (String item : check_items) {
 
-			// パソコンだった時のcaseを作成
+			// 残数をランダムに宣言
+			int item_rand = rand.nextInt(12);
+
+			// 入力されたものによる場合分け
+			switch (item) {
+
+			// パソコンだった場合
 			case "パソコン":
-	
-				// 冷蔵庫だった時のcaseを作成
+
+			// 冷蔵庫だった場合
 			case "冷蔵庫":
 
-				// 扇風機だった時のcaseを作成
+			// 扇風機だった場合
 			case "扇風機":
 
-				// 洗濯機だった時のcaseを作成
+			// 洗濯機だった場合
 			case "洗濯機":
-			
-				// 加湿器だった時のcaseを作成
+
+			// 加湿器だった場合
 			case "加湿器":
-				// 「○○の残り台数は〇台です」を出力
+
 				System.out.println(item + "の残り台数は" + item_rand + "台です\n");
 				break;
 
-				// テレビかディスプレイだった時のcaseを作成
+			// テレビかディスプレイだった場合
 			case "テレビ":
 			case "ディスプレイ":
-				// itemがテレビだった時の条件演算子を作成。「true」だった場合「テレビの残り台数」「false」だった場合「ディスプレイの残り台数」を出力
-				System.out.println(item.equals("テレビ") ? "テレビの残り台数は" + TVDisplay_rand + "台です" : "ディスプレイの残り台数は" + TVDisplay_rand + "台です" );	
-				// TV_randにitem_randを代入
-				TVDisplay_rand = 11 - TVDisplay_rand;
+
+				// アイテムの中身がテレビか否かで場合分け
+				System.out.println(item.equals("テレビ") ? "テレビの残り台数は" + tvDisplay_rand + "台です\n"
+						: "ディスプレイの残り台数は" + tvDisplay_rand + "台です\n");
+				// テレビとディスプレイの残数を更新
+				tvDisplay_rand = 11 - tvDisplay_rand;
 				break;
 
-				// いずれの場合でもなかった時の処理を作成
-			default :
-				// itemは指定の商品ではありませんを出力
-				System.out.println("『" + item + "』は指定の商品ではありません" );
+			// いずれの場合でもなかった場合
+			default:
+
+				System.out.println("『" + item + "』は指定の商品ではありません\n");
 				break;
 			}
 
-
 		}
-
 
 	}
 
