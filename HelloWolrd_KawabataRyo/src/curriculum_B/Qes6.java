@@ -52,9 +52,8 @@ public class Qes6 {
 
 				// アイテムの中身がテレビか否かで場合分け
 				System.out.println(item.equals("テレビ") ? "テレビの残り台数は" + tvDisplay_rand + "台です\n"
-						: "ディスプレイの残り台数は" + tvDisplay_rand + "台です\n");
-				// テレビとディスプレイの残数を更新
-				tvDisplay_rand = 11 - tvDisplay_rand;
+						: "ディスプレイの残り台数は" + (11 - tvDisplay_rand) + "台です\n");
+
 				break;
 
 			// いずれの場合でもなかった場合
