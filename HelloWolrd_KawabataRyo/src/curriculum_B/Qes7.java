@@ -11,11 +11,11 @@ public class Qes7 {
 		Scanner scanner = new Scanner(System.in);
 
 		// 教科を配列に
-		String subject[] = {"英語", "数学", "理科", "社会"};
-		
+		String subject[] = { "英語", "数学", "理科", "社会" };
+
 		// 教科の合計点を教科の数でまとめる
 		int totalScores[] = new int[subject.length];
-		
+
 		// 生徒の番号を宣言
 		int studentsNum;
 
@@ -24,8 +24,8 @@ public class Qes7 {
 			System.out.print("生徒の人数を入力してください（2以上）: ");
 			// 入力された数字を変数に代入
 			studentsNum = scanner.nextInt();
-			
-		// 条件は生徒数が2より少ない
+
+			// 条件は生徒数が2より少ない
 		} while (studentsNum < 2);
 		// 点数を人数分まとめる
 		int scores[][] = new int[studentsNum][subject.length];
@@ -33,11 +33,10 @@ public class Qes7 {
 		double averages[] = new double[studentsNum];
 		// 個人の合計点をまとめる
 		int allScores[] = new int[studentsNum];
-		
-		
+
 		// 生徒の数だけ繰り返す
 		for (int i = 0; i < studentsNum; i++) {
-		
+
 			// 教科の数だけ繰り返す
 			for (int j = 0; j < subject.length; j++) {
 				// i人目のjの科目の処理
@@ -46,12 +45,12 @@ public class Qes7 {
 				// 教科ごとに合計点足していく
 				totalScores[j] += scores[i][j];
 				// 個人の合計点を足していく
-				allScores[i] += scores[i][j]; 
+				allScores[i] += scores[i][j];
 			}
 			System.out.println("");
 			// 各生徒の平均値を配列にいれる
-			averages[i] = (double)allScores[i] / subject.length;
-					
+			averages[i] = (double) allScores[i] / subject.length;
+
 		}
 
 		// 生徒数まで繰り返す
@@ -60,13 +59,13 @@ public class Qes7 {
 			System.out.printf("%d人目の平均点は%.2f点です%n", i + 1, averages[i]);
 		}
 		System.out.println("");
-		
+
 		// 教科ごとの平均点を宣言
 		double averageSubject[] = new double[subject.length];
-	
+
 		//全体の平均点を宣言
 		double averageAll = 0;
-		
+
 		// 教科数まで繰り返す
 		for (int j = 0; j < subject.length; j++) {
 			// 教科ごとに合計点数を生徒数で割る
@@ -74,10 +73,10 @@ public class Qes7 {
 			// 全体の平均値のために上の数字を足していく
 			averageAll += averageSubject[j];
 		}
-		
+
 		// 足してたものを教科数で割る
 		averageAll /= subject.length;
-		
+
 		// 教科数まで繰り返す
 		for (int j = 0; j < subject.length; j++) {
 			// 教科ごとの出力
