@@ -1,8 +1,9 @@
 package process;
 
+//インポート
 import java.text.SimpleDateFormat;
-// インポート
 import java.util.Date;
+import java.util.Objects;
 
 public class Greeting {
 
@@ -14,7 +15,7 @@ public class Greeting {
 	// コンストラクタを生成
 	public Greeting(String country, String food, String foodType) {
 
-		//フィールド変数の初期化
+		// フィールド変数の初期化
 		this.country = country;
 		this.food = food;
 		this.foodType = foodType;
@@ -26,14 +27,32 @@ public class Greeting {
 		Date date = new Date();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
-		// インスタンスを生成
 		String today = dateFormat.format(date);
 
+		// ヌルチェック
+		if (Objects.nonNull(country)) {
+
+			// コンソールへ出力
+			System.out.println("こんにちは！ここは" + country + "です！");
+		}
+
+		// ヌルチェック
+		if (Objects.nonNull(food)) {
+
+			// コンソールへ出力
+			System.out.println("この" + food + "はうまい");
+		}
+
+		// ヌルチェック
+		if (Objects.nonNull(foodType)) {
+
+			// コンソールへ出力
+			System.out.println(food + "は" + foodType + "です");
+		}
+
 		// コンソールへ出力
-		System.out.println("こんにちは！ここは" + country + "です！");
-		System.out.println("この" + food + "はうまい");
-		System.out.println(food + "は" + foodType + "です");
 		System.out.println("今の現在日時は" + today + "です");
+
 	}
 
 }
