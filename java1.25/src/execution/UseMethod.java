@@ -22,19 +22,33 @@
  */
 package execution;
 
+import java.util.Objects;
+import java.util.Scanner;
+
 // インポート
 import status.StatusCheck;
 
 public class UseMethod {
 
 	public static void main(String[] args) {
-		
+
 		// インスタンスを生成
 		StatusCheck statusCheck = new StatusCheck();
-		
-		// メソッドを実行
-		statusCheck.check();
+		Scanner scanner = new Scanner(System.in);
 
+		// セッター
+		statusCheck.setName(scanner.next());
+
+		// 変数を宣言
+		String status = statusCheck.toString();
+
+		// nullチェック
+		if (Objects.nonNull(statusCheck.getName())) {
+
+			System.out.println(status);
+		}
+
+		scanner.close();
 	}
 
 }

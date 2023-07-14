@@ -9,6 +9,17 @@ public class StatusBase {
 	private int dex;
 	private int def;
 
+	public StatusBase() {
+
+		// 変数の初期化
+		this.hp = 0;
+		this.mp = 0;
+		this.atk = 0;
+		this.dex = 0;
+		this.def = 0;
+
+	}
+
 	// ゲッターとセッターを生成
 	public int getHp() {
 		return hp;
@@ -50,4 +61,11 @@ public class StatusBase {
 		this.def = def;
 	}
 
+	// メソッドを生成
+	public String toString() {
+
+		return "HP : " + getHp() + "\nMP : " + getMp()
+
+				+ "\n攻撃力 : " + getAtk() + "\n素早さ : " + getDex() + "\n防御力 : " + getDef();
+	}
 }
