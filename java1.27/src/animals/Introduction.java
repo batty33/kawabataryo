@@ -57,37 +57,46 @@ public class Introduction {
 		// コンソールに出力
 		System.out.println("コンソールに文字を入力してください");
 
-		// 入力されたものを「,」で区切る
-		String animalData[] = scanner.nextLine().split(",");
+		do {
+			// 入力されたものを「,」で区切る
+			String animalData[] = scanner.nextLine().split(",");
 
-		// nullチェック
-		if (Objects.nonNull(animalData)) {
+			// nullチェック
+			if (Objects.nonNull(animalData) && animalData.length == 6) {
+				// for文生成
+				for (int i = 0; i < 6; i++) {
 
-			// for文生成
-			for (int i = 0; i < 6; i++) {
+					// インスタンスを生成し、配列に代入
+					animals[i] = new Animal();
 
-				// インスタンスを生成し、配列に代入
-				animals[i] = new Animal();
+					// 区切った物をさらに「:」で区切る
+					String data[] = animalData[i].split(":");
 
-				// 区切った物をさらに「:」で区切る
-				String data[] = animalData[i].split(":");
+					// 区切った物をフィールドに更新
+					animals[i].setName(data[0]);
+					animals[i].setLength(Double.parseDouble(data[1]));
+					animals[i].setFast(Integer.parseInt(data[2]));
+					animals[i].setScientificName(scientificName(data[0]));
+				}
 
-				// 区切った物をフィールドに更新
-				animals[i].setName(data[0]);
-				animals[i].setLength(Double.parseDouble(data[1]));
-				animals[i].setFast(Integer.parseInt(data[2]));
-				animals[i].setScientificName(scientificName(data[0]));
+				// for文生成
+				for (int i = 0; i < 6; i++) {
+
+					// メソッドの呼び出し
+					System.out.println(animals[i].toString());
+				}
+
+				// 正しい値の時ループを終了
+				break;
+
+			} else {
+
+				// コンソール出力
+				System.out.println("入力が正しくありません。再度入力してください");
 			}
+		} while (true);
 
-			// for文生成
-			for (int i = 0; i < 6; i++) {
-
-				// メソッドの呼び出し
-				System.out.println(animals[i].toString());
-			}
-
-			scanner.close();
-		}
+		scanner.close();
 	}
 
 	// 学名メソッド生成
