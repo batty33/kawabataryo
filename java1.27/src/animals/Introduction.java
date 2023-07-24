@@ -41,67 +41,78 @@
 
 package animals;
 
+import java.util.Objects;
 //インポート
 import java.util.Scanner;
 
 public class Introduction {
 
 	public static void main(String[] args) {
-		
+
 		// インスタンス
 		Scanner scanner = new Scanner(System.in);
 		// インスタンスで配列を生成。
-		Animal animals[]= new Animal[6];
-		
+		Animal animals[] = new Animal[6];
+
 		// コンソールに出力
 		System.out.println("コンソールに文字を入力してください");
-		
+
 		// 入力されたものを「,」で区切る
 		String animalData[] = scanner.nextLine().split(",");
-		
-		// for文生成
-		for (int i = 0; i < 6; i ++) {
-			
-			// インスタンスを生成し、配列に代入
-			animals[i] = new Animal();
-			
-			// 区切った物をさらに「:」で区切る
-			String data[] = animalData[i].split(":");
-			
-			// 区切った物をフィールドに更新
-			animals[i].setName(data[0]);
-			animals[i].setLength(Double.parseDouble(data[1]));
-			animals[i].setFast(Integer.parseInt(data[2]));
-			animals[i].setScientificName(scientificName(data[0]));
+
+		// nullチェック
+		if (Objects.nonNull(animalData)) {
+
+			// for文生成
+			for (int i = 0; i < 6; i++) {
+
+				// インスタンスを生成し、配列に代入
+				animals[i] = new Animal();
+
+				// 区切った物をさらに「:」で区切る
+				String data[] = animalData[i].split(":");
+
+				// 区切った物をフィールドに更新
+				animals[i].setName(data[0]);
+				animals[i].setLength(Double.parseDouble(data[1]));
+				animals[i].setFast(Integer.parseInt(data[2]));
+				animals[i].setScientificName(scientificName(data[0]));
+			}
+
+			// for文生成
+			for (int i = 0; i < 6; i++) {
+
+				// メソッドの呼び出し
+				System.out.println(animals[i].toString());
+			}
+
+			scanner.close();
 		}
-		
-		// for文生成
-		for (int i = 0; i < 6; i++) {
-			
-			// メソッドの呼び出し
-			System.out.println(animals[i].toString());
-		}
-		
-		scanner.close();
 	}
 
 	// 学名メソッド生成
 	private static String scientificName(String name) {
-		
+
 		// 場合分け
 		switch (name) {
-		
-		case "ライオン" : return "パンテラ レオ";
-		
-		case "ゾウ" : return "ロキソドンタ・サイクロティス";
-		
-		case "パンダ" : return "アイルロポダ・メラノレウカ";
-		
-		case "チンパンジー" : return "パン・トゥログロディテス";
-		
-		case "シマウマ" : return "チャップマンシマウマ";
-		
-		default : return "不明";
+
+		case "ライオン":
+			return "パンテラ レオ";
+
+		case "ゾウ":
+			return "ロキソドンタ・サイクロティス";
+
+		case "パンダ":
+			return "アイルロポダ・メラノレウカ";
+
+		case "チンパンジー":
+			return "パン・トゥログロディテス";
+
+		case "シマウマ":
+			return "チャップマンシマウマ";
+
+		default:
+			return "不明";
 		}
 	}
 }
