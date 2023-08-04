@@ -45,13 +45,11 @@ import java.util.Scanner;
 import prefectures.Prefecture;
 
 public class Introduction {
-	
+
 	private static Integer[] intSplit;
 
 	public static void main(String[] arggs) {
 
-		 
-		
 		// インスタンスを生成
 		Scanner scanner = new Scanner(System.in);
 
@@ -83,14 +81,14 @@ public class Introduction {
 			String strSplit[] = strNum.split(",");
 
 			// 配列を生成
-			 intSplit = new Integer[strSplit.length];
+			intSplit = new Integer[strSplit.length];
 
 			// for文を生成
 			for (int i = 0; i < strSplit.length; i++) {
 
 				// 区切った物を整数に変換
 				intSplit[i] = Integer.parseInt(strSplit[i]);
-				
+
 			}
 
 		} else {
@@ -102,10 +100,10 @@ public class Introduction {
 		// 繰り返し
 		do {
 
-		// ソートを入力で受け取る
+			// ソートを入力で受け取る
 			String orderSort = scanner.nextLine();
 
-		// 場合分け
+			// 場合分け
 			if (Objects.nonNull(orderSort) && orderSort.equals("昇順")) {
 
 				// 昇順に並び替え
