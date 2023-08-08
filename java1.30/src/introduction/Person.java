@@ -36,7 +36,7 @@ class Person {
 
 		// 問9 コンソールへ出力
 		System.out.println(
-				"名前は" + this.name + "です\n" + "年は" + this.age + "です\n" + "BMIは" + String.format("%.2f", bmi()) + "です\n");
+				"名前は" + this.name + "です\n" + "年は" + this.age + "です\n" + "BMIは" + Math.floor(bmi()) + "です\n");
 
 	}
 }
