@@ -39,4 +39,16 @@ class Person {
 				"名前は" + this.name + "です\n" + "年は" + this.age + "です\n" + "BMIは" + Math.floor(bmi()) + "です\n");
 
 	}
+	
+	// バイメソッドを定義
+	public void buy(Car car) {
+		car.setOwner(this.name);
+		System.out.println(car.getOwner() + "が購入しました");
+	}
+	
+	// オーバーロード
+	public void buy(Bicycle bicycle) {
+		bicycle.setOwner(this.name);
+		System.out.println(bicycle.getOwner() + "が購入しました");
+	}
 }
