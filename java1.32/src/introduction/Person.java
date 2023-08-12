@@ -13,9 +13,9 @@ class Person {
 		this.age = age;
 		this.height = height;
 		this.weight = weight;
-		
+
 		// 問2 カウントを増やす
-		count ++;
+		count++;
 	}
 
 	public double bmi() {
@@ -26,11 +26,11 @@ class Person {
 		System.out.println("名前は" + this.name + "です");
 		System.out.println("年は" + this.age + "です");
 	}
-	
+
 	// 問4 クラスメソッド生成
 	public static void printCount() {
-		
+
 		// 問5 コンソールへ出力
-		System.out.println("合計" + count +"円です");
+		System.out.println("合計" + count + "人です");
 	}
 }
